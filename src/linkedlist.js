@@ -19,12 +19,12 @@ export default class LinkedList {
   }
 
   toString() {
-    let string = '';
+    let string = `( ${this.#head.data} ) -> `;
     let current = this.#head;
-    do {
-      string += `( ${current.data} ) -> `;
+    while (current.next) {
+      string += `( ${current.next.data} ) -> `;
       current = current.next;
-    } while (current);
+    }
     string += 'null';
     return string;
   }
