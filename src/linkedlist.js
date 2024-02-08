@@ -73,4 +73,17 @@ export default class LinkedList {
     }
     return current;
   }
+
+  pop() {
+    // If the linked list is already empty
+    if (this.size() < 1) return null;
+    // Get ref so tail can be returned later
+    const oldTail = this.tail();
+    // Make sure index provided to at() is at least zero
+    const newTail = this.at(Math.max(this.size() - 2, 0));
+    newTail.next = null;
+    // If there is only one node, oldTail and newTail will be same, we will want to clear the head ref
+    if (newTail === oldTail) this.#head = null;
+    return oldTail;
+  }
 }
