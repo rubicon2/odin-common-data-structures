@@ -7,9 +7,11 @@ class Node {
 }
 
 export default class LinkedList {
+  #head = null;
+
   constructor(elements) {
-    this.head = new Node(elements[0]);
-    let current = this.head;
+    this.#head = new Node(elements[0]);
+    let current = this.#head;
     for (let i = 1; i < elements.length; i += 1) {
       current.next = new Node(elements[i]);
       current = current.next;
@@ -18,12 +20,24 @@ export default class LinkedList {
 
   toString() {
     let string = '';
-    let current = this.head;
+    let current = this.#head;
     do {
       string += `( ${current.data} ) -> `;
       current = current.next;
     } while (current);
     string += 'null';
     return string;
+  }
+
+  head() {
+    return this.#head;
+  }
+
+  tail() {
+    let current = this.#head;
+    while (current.next) {
+      current = current.next;
+    }
+    return current;
   }
 }
