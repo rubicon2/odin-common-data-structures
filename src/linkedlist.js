@@ -40,4 +40,12 @@ export default class LinkedList {
     }
     return current;
   }
+
+  append(value) {
+    this.tail().next = new Node(value);
+  }
+
+  prepend(value) {
+    this.#head = new Node(value, this.#head);
+  }
 }
