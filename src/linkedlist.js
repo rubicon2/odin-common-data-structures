@@ -58,4 +58,19 @@ export default class LinkedList {
   prepend(value) {
     this.#head = new Node(value, this.#head);
   }
+
+  at(index) {
+    // Argument checking
+    if (index < 0) throw new Error('called with an index smaller than zero.');
+    if (index > this.size() - 1)
+      throw new Error(
+        'called with an index greater than the length of the list.',
+      );
+    // If provided index is within the correct range
+    let current = this.#head;
+    for (let i = 0; i < index; i += 1) {
+      current = current.next;
+    }
+    return current;
+  }
 }
