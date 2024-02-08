@@ -29,6 +29,16 @@ export default class LinkedList {
     return string;
   }
 
+  size() {
+    let count = 1;
+    let current = this.#head;
+    while (current.next) {
+      count += 1;
+      current = current.next;
+    }
+    return count;
+  }
+
   head() {
     return this.#head;
   }
