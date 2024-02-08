@@ -19,10 +19,10 @@ export default class LinkedList {
   }
 
   toString() {
-    let string = `( ${this.#head.data} ) -> `;
+    let string = '';
     let current = this.#head;
-    while (current.next) {
-      string += `( ${current.next.data} ) -> `;
+    while (current) {
+      string += `( ${current.data} ) -> `;
       current = current.next;
     }
     string += 'null';
@@ -30,9 +30,9 @@ export default class LinkedList {
   }
 
   size() {
-    let count = 1;
+    let count = 0;
     let current = this.#head;
-    while (current.next) {
+    while (current) {
       count += 1;
       current = current.next;
     }
@@ -45,14 +45,15 @@ export default class LinkedList {
 
   tail() {
     let current = this.#head;
-    while (current.next) {
+    while (current?.next) {
       current = current.next;
     }
     return current;
   }
 
   append(value) {
-    this.tail().next = new Node(value);
+    if (!this.#head) this.#head = new Node(value);
+    else this.tail().next = new Node(value);
   }
 
   prepend(value) {
