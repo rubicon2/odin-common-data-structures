@@ -1,4 +1,6 @@
 /* eslint-disable max-classes-per-file */
+import isEqual from './isEqual';
+
 class Node {
   constructor(data, next = null) {
     this.data = data;
@@ -92,7 +94,7 @@ export default class LinkedList {
   contains(value) {
     let current = this.#head;
     while (current) {
-      if (current.data === value) return true;
+      if (isEqual(current.data, value)) return true;
       current = current.next;
     }
     // If not found
@@ -103,7 +105,7 @@ export default class LinkedList {
     let current = this.#head;
     let index = 0;
     while (current) {
-      if (current.data === value) return index;
+      if (isEqual(current.data, value)) return index;
       current = current.next;
       index += 1;
     }
