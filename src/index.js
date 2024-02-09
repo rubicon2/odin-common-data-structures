@@ -1,6 +1,6 @@
 import './style.css';
 
-import LinkedList from './linkedlist';
+import LinkedList from './linkedList';
 
 const list = new LinkedList(['first', 'second', 'third']);
 
