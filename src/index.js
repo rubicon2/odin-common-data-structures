@@ -18,6 +18,7 @@ console.log('size: ', list.size());
 console.log('head: ', list.head());
 console.log('tail: ', list.tail());
 console.log('contains true: ', list.contains('zeroeth'));
+console.log('contains false: ', list.contains('billioneth'));
 
 const sixth = list.at(list.find('sixth'));
 console.log('sixth: ', sixth);
