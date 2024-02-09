@@ -87,4 +87,26 @@ export default class LinkedList {
     if (newTail === oldTail) this.#head = null;
     return oldTail;
   }
+
+  contains(value) {
+    let current = this.#head;
+    while (current) {
+      if (current.data === value) return true;
+      current = current.next;
+    }
+    // If not found
+    return false;
+  }
+
+  find(value) {
+    let current = this.#head;
+    let index = 0;
+    while (current) {
+      if (current.data === value) return index;
+      current = current.next;
+      index += 1;
+    }
+    // If not found
+    return null;
+  }
 }
