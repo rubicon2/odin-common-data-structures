@@ -113,6 +113,10 @@ export default class LinkedList {
     return null;
   }
 
+  get(value) {
+    return this.at(this.find(value));
+  }
+
   insertAt(value, index) {
     if (index === 0) this.prepend(value);
     else {
