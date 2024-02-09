@@ -121,4 +121,14 @@ export default class LinkedList {
       priorNode.next = newNode;
     }
   }
+
+  removeAt(index) {
+    if (index === 0) this.#head = this.#head.next;
+    else {
+      const priorNode = this.at(index - 1);
+      // If priorNode.next.next does not exist (i.e. priorNode.next is the tail, will default to undefined, in which case we will set to null
+      const nextNode = priorNode.next?.next || null;
+      priorNode.next = nextNode;
+    }
+  }
 }
