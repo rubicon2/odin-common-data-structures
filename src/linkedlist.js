@@ -109,4 +109,13 @@ export default class LinkedList {
     // If not found
     return null;
   }
+
+  insertAt(value, index) {
+    if (index === 0) this.prepend(value);
+    else {
+      const priorNode = this.at(index - 1);
+      const newNode = new Node(value, priorNode.next);
+      priorNode.next = newNode;
+    }
+  }
 }
