@@ -83,9 +83,10 @@ export default class LinkedList {
     // Make sure index provided to at() is at least zero
     const newTail = this.at(Math.max(this.size() - 2, 0));
     newTail.next = null;
-    // If there is only one node, oldTail and newTail will be same, we will want to clear the head ref
+    // If there is only one node left to remove, oldTail and newTail will be same, and we will want to clear the head ref
     if (newTail === oldTail) this.#head = null;
-    return oldTail;
+    // Return the data so linked list can be used as a queue, etc.
+    return oldTail.data;
   }
 
   contains(value) {
